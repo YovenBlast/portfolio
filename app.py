@@ -90,7 +90,7 @@ DATA = {
             "stack": ["ESP8266", "MQ4/MQ8", "Firebase", "Python (data processing)"],
             "contribution": "Designed sensor system, integrated Firebase streaming and dashboard, defined composting phases.",
             "image": "/static/projects/compostBin.png",
-            "repo": "https://github.com/TODO/smart-composting-bin",
+            "repo": "https://github.com/YovenBlast/Smart_Composting_Bin",
             "demo": "",
             "video_url": "",  # TODO: Add GitHub video URL
             "images_url": "https://github.com/YovenBlast/Smart_Composting_Bin_Images"  # TODO: Add GitHub images folder URL
