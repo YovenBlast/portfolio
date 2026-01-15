@@ -21,10 +21,10 @@ app = Flask(__name__)
 # ---------------------------
 DATA = {
     "name": "Maheswaren CHINNASAMY",
-    "title": "Software Developer \u2014 Aspiring Software Tester",
+    "title": "Software Developer — Aspiring Software Tester",
     "location": "Mauritius",
     "summary": (
-        "I\'m Maheswaren, a software developer and aspiring software test engineer. "
+        "I'm Maheswaren, a software developer and aspiring software test engineer. "
         "I work with AI, IoT, mobile development (Flutter), and automation. "
         "I love building practical projects that solve real problems."
     ),
@@ -45,17 +45,42 @@ DATA = {
             "role": "Software Tester Intern",
             "company": "SD Worx Mauritius",
             "date": "March 2024",
-            "details": "Worked on real-world testing tasks; learned teamwork, workflows, and testing tools."
+            "details": "Worked on real-world testing tasks; learned teamwork, workflows, and testing tools.",
+            "technologies": ["C#", "Playwright", "Agile Methodologies"],
+            "position": "",
+            "tasks": []
         },
         {
-            "role": "Working at CIM Finance Services Ltd",
+            "role": "Working at CIM",
             "company": "CIM Finance Services Ltd",
             "date": "Present",
-            "details": "I work in software testing and development, doing forms, AI integration, and automations."
+            "details": "I work in software testing and development, doing forms, AI integration, and automations.",
+            "technologies": ["C#", "WSO2", "CSS", "Python"],
+            "position": "Analyst Programmer",
+            "tasks": [
+                "Design and Implementation of forms",
+                "Automation of ESB system",
+                "Providing innovative solutions",
+                "Files transfer"
+            ]
         }
     ],
     "education": [
         {"degree": "BSc (Hons) Software Engineering", "school": "University of Technology, Mauritius", "date": "Expected Feb 2025"}
+    ],
+    "certifications": [
+        {
+            "name": "WSO2 API Manager Practitioner Certification - V4",
+            "issuer": "WSO2",
+            "date": "September 2025",
+            "credential_url": "https://certification.wso2.com/certificate/CID-05134719"
+        },
+        {
+            "name": "Rise In",
+            "issuer": "Rise In",
+            "date": "November - December 2024",
+            "credential_url": "https://www.risein.com/courses/transactions-and-bitcoin"
+        }
     ],
     "projects": [
         {
@@ -66,7 +91,9 @@ DATA = {
             "contribution": "Designed sensor system, integrated Firebase streaming and dashboard, defined composting phases.",
             "image": "/static/projects/compostBin.png",
             "repo": "https://github.com/TODO/smart-composting-bin",
-            "demo": ""
+            "demo": "",
+            "video_url": "",  # TODO: Add GitHub video URL
+            "images_url": "https://github.com/YovenBlast/Smart_Composting_Bin_Images"  # TODO: Add GitHub images folder URL
         },
         {
             "id": "smart_parking",
@@ -76,7 +103,9 @@ DATA = {
             "contribution": "Sensor interfacing, zone logic, cloud push and simple web dashboard.",
             "image": "/static/projects/parking.webp",
             "repo": "https://github.com/YovenBlast/Smart-Parking-System",
-            "demo": ""
+            "demo": "",
+            "video_url": "https://vimeo.com/1154608349?fl=ip&fe=ec",  # TODO: Add GitHub video URL
+            "images_url": "https://github.com/YovenBlast/Images/blob/main/PK1.webp"  # TODO: Add GitHub images folder URL
         },
         {
             "id": "hotel_app",
@@ -85,8 +114,10 @@ DATA = {
             "stack": ["Flutter", "Dart", "Firebase"],
             "contribution": "Built UI, booking logic, and integrated database helpers for images and room numbers.",
             "image": "/static/projects/HotelBooking.png",
-            "repo": "https://github.com/TODO/hotel-booking-app",
-            "demo": ""
+            "repo": "https://github.com/YovenBlast/Hotel_Booking_System",
+            "demo": "",
+            "video_url": "",  # TODO: Add GitHub video URL
+            "images_url": "https://github.com/YovenBlast/Hotel_Booking_System_Images"  # TODO: Add GitHub images folder URL
         },
         {
             "id": "trash_tamer",
@@ -96,7 +127,9 @@ DATA = {
             "contribution": "Game design, ad integration, and social sharing implementation.",
             "image": "/static/projects/trash.jpg",
             "repo": "https://github.com/YovenBlast/Trash_Tamer_Homepage",
-            "demo": ""
+            "demo": "",
+            "video_url": "",  # TODO: Add GitHub video URL
+            "images_url": "https://github.com/YovenBlast/Trash_Tamer_Images"  # TODO: Add GitHub images folder URL
         },
         {
             "id": "mq4_butane",
@@ -105,8 +138,10 @@ DATA = {
             "stack": ["ESP8266", "MQ4", "Firebase"],
             "contribution": "Wiring, threshold logic, and cloud logging. Provided code to trigger LED on detection.",
             "image": "/static/projects/mq4.jpg",
-            "repo": "https://github.com/TODO/butane-detection",
-            "demo": ""
+            "repo": "https://github.com/YovenBlast/app_C-",
+            "demo": "",
+            "video_url": "",  # TODO: Add GitHub video URL
+            "images_url": ""  # TODO: Add GitHub images folder URL
         },
         {
             "id": "java_datetime",
@@ -115,11 +150,12 @@ DATA = {
             "stack": ["Java", "Scanner", "Algorithms"],
             "contribution": "Built full date-time logic: leap year detection, input validation, automatic rollover of time and date.",
             "image": "/static/projects/java1.jpg",
-            "repo": "",
-            "demo": ""
+            "repo": "https://github.com/YovenBlast/app_java",
+            "demo": "",
+            "video_url": "",  # TODO: Add GitHub video URL
+            "images_url": ""  # TODO: Add GitHub images folder URL
         }
-]
-
+    ]
 }
 
 # ---------------------------
@@ -127,7 +163,7 @@ DATA = {
 # ---------------------------
 BASE_HTML = '''
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -135,30 +171,246 @@ BASE_HTML = '''
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-      body { background: linear-gradient(180deg,#0f172a 0%, #07132a 100%); color: #e6eef8; }
-      .card { background: rgba(255,255,255,0.03); border: none; }
-      .accent { color: #7dd3fc; }
-      .skill-badge{ background: rgba(255,255,255,0.05); padding:6px 8px; border-radius:999px; margin:4px; display:inline-block;}
+      :root {
+        --bg-primary: #0f172a;
+        --bg-secondary: #07132a;
+        --text-primary: #e6eef8;
+        --text-secondary: #94a3b8;
+        --card-bg: rgba(255,255,255,0.03);
+        --accent: #7dd3fc;
+        --skill-badge-bg: rgba(255,255,255,0.05);
+        --skill-badge-text: #ffffff;
+        --border-color: rgba(255,255,255,0.1);
+      }
+
+      [data-theme="light"] {
+        --bg-primary: #f8fafc;
+        --bg-secondary: #e2e8f0;
+        --text-primary: #1e293b;
+        --text-secondary: #475569;
+        --card-bg: #ffffff;
+        --accent: #0284c7;
+        --skill-badge-bg: #e0f2fe;
+        --skill-badge-text: #0c4a6e;
+        --border-color: #cbd5e1;
+      }
+
+      body { 
+        background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%); 
+        color: var(--text-primary);
+        transition: background 0.3s ease, color 0.3s ease;
+        min-height: 100vh;
+      }
+
+      .card { 
+        background: var(--card-bg); 
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+
+      .accent { color: var(--accent); }
+
+      .skill-badge { 
+        background: var(--skill-badge-bg); 
+        color: var(--skill-badge-text);
+        padding: 6px 12px; 
+        border-radius: 999px; 
+        margin: 4px; 
+        display: inline-block;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: 1px solid transparent;
+      }
+
+      .skill-badge:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 4px 12px rgba(125, 211, 252, 0.3);
+        border-color: var(--accent);
+        background: var(--accent);
+        color: #ffffff;
+      }
+
       .hero { padding: 60px 0; }
-      .profile-img { width:160px; height:160px; object-fit:cover; border-radius:50%; box-shadow: 0 8px 30px rgba(0,0,0,0.6); border:4px solid rgba(255,255,255,0.06); }
-      .project-img { width:100%; height:180px; object-fit:cover; border-radius:8px; }
-      a.glow { text-decoration:none; border-bottom:1px dashed rgba(125,211,252,0.4); }
-      footer { opacity:0.7; padding:30px 0; }
 
-       .card h5, 
-  .card p, 
-  .card .skill-badge {
-      color: #ffffff !important;
-      opacity: 1 !important;
-  }
+      .profile-img { 
+        width: 160px; 
+        height: 160px; 
+        object-fit: cover; 
+        border-radius: 50%; 
+        box-shadow: 0 8px 30px rgba(0,0,0,0.6); 
+        border: 4px solid var(--border-color);
+        transition: border-color 0.3s ease;
+      }
 
-  .project-img {
-      filter: brightness(1.1);
-  }
+      .project-img { 
+        width: 100%; 
+        height: 180px; 
+        object-fit: cover; 
+        border-radius: 8px;
+        filter: brightness(1.1);
+      }
+
+      a.glow { 
+        text-decoration: none; 
+        border-bottom: 1px dashed rgba(125,211,252,0.4); 
+      }
+
+      footer { 
+        opacity: 0.7; 
+        padding: 30px 0; 
+      }
+
+      .card h4,
+      .card h5, 
+      .card h6,
+      .card p, 
+      .card strong {
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+      }
+
+      .form-label {
+        color: var(--text-primary) !important;
+      }
+
+      h3 {
+        color: var(--text-primary) !important;
+      }
+
+      .card-body h5 {
+        color: var(--text-primary) !important;
+      }
+
+      .cert-item {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .cert-item:last-child {
+        border-bottom: none;
+      }
+
+      .task-item {
+        padding: 4px 0;
+        padding-left: 20px;
+        position: relative;
+        color: var(--text-primary) !important;
+      }
+
+      .task-item:before {
+        content: "•";
+        position: absolute;
+        left: 8px;
+        color: var(--accent);
+      }
+
+      /* Theme Toggle Button */
+      .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(125, 211, 252, 0.3);
+      }
+
+      .theme-toggle svg {
+        width: 24px;
+        height: 24px;
+        fill: var(--text-primary);
+      }
+
+      .navbar {
+        background: var(--card-bg) !important;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .nav-link {
+        color: var(--text-secondary) !important;
+      }
+
+      .nav-link:hover {
+        color: var(--accent) !important;
+      }
+
+      .btn-outline-light {
+        border-color: var(--border-color);
+        color: var(--text-primary);
+      }
+
+      .btn-outline-light:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #ffffff;
+      }
+
+      .form-control {
+        background: var(--card-bg);
+        border-color: var(--border-color);
+        color: var(--text-primary);
+      }
+
+      .form-control:focus {
+        background: var(--card-bg);
+        border-color: var(--accent);
+        color: var(--text-primary);
+      }
+
+      [data-theme="light"] .text-muted {
+        color: var(--text-secondary) !important;
+      }
+
+      .media-section {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+
+      .video-container video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+      }
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display: none;">
+        <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"/>
+      </svg>
+      <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z"/>
+      </svg>
+    </button>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
         <a class="navbar-brand accent" href="#">{{ data.name }}</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false">
@@ -179,13 +431,54 @@ BASE_HTML = '''
       {% block content %}{% endblock %}
     </main>
 
-    <footer class="text-center text-muted">
-      <div class="container">Built with Python + Flask • {{ data.location }} • <a class="glow" href="{{ data.github }}">GitHub</a></div>
+    <footer class="text-center">
+      <div class="container">Maheswaren Chinnasamy + Portfolio • {{ data.location }} • <a class="glow" href="{{ data.github }}">GitHub</a></div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script> AOS.init(); </script>
+    <script>
+      AOS.init();
+
+      // Theme Toggle Functionality
+      function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        // Toggle icons
+        const sunIcon = document.getElementById('theme-icon-sun');
+        const moonIcon = document.getElementById('theme-icon-moon');
+
+        if (newTheme === 'light') {
+          sunIcon.style.display = 'none';
+          moonIcon.style.display = 'block';
+        } else {
+          sunIcon.style.display = 'block';
+          moonIcon.style.display = 'none';
+        }
+      }
+
+      // Load saved theme on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        const sunIcon = document.getElementById('theme-icon-sun');
+        const moonIcon = document.getElementById('theme-icon-moon');
+
+        if (savedTheme === 'light') {
+          sunIcon.style.display = 'none';
+          moonIcon.style.display = 'block';
+        } else {
+          sunIcon.style.display = 'block';
+          moonIcon.style.display = 'none';
+        }
+      });
+    </script>
   </body>
 </html>
 '''
@@ -230,12 +523,39 @@ INDEX_HTML = '''
     <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
       <div class="card p-4">
         <h4>Education & Experience</h4>
+
+        <!-- CIM Finance (Present - Most Recent) -->
+        <p><strong>Working at CIM</strong> — CIM Finance Services Ltd <br><small>Present</small><br>I work in software testing and development, doing forms, AI integration, and automations.</p>
+
+        <hr>
+
+        <!-- SD Worx Internship (March 2024) -->
+        <p><strong>Software Tester Intern</strong> — SD Worx Mauritius <br><small>March 2024</small><br>Worked on real-world testing tasks; learned teamwork, workflows, and testing tools.</p>
+
+        <hr>
+
+        <!-- Education (Expected Feb 2025 - Oldest) -->
         {% for edu in data.education %}
           <p><strong>{{ edu.degree }}</strong><br>{{ edu.school }} — <small>{{ edu.date }}</small></p>
         {% endfor %}
-        <hr>
-        {% for exp in data.experience %}
-          <p><strong>{{ exp.role }}</strong> — {{ exp.company }} <br><small>{{ exp.date }}</small><br>{{ exp.details }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications" class="my-5">
+  <h3 data-aos="fade-up">Certifications</h3>
+  <div class="row">
+    <div class="col-12" data-aos="fade-up">
+      <div class="card p-4">
+        {% for cert in data.certifications %}
+          <div class="cert-item">
+            <h6 class="mb-1">{{ cert.name }}</h6>
+            <p class="mb-1"><strong>{{ cert.issuer }}</strong> — <small>{{ cert.date }}</small></p>
+            {% if cert.credential_url %}
+              <a href="{{ cert.credential_url }}" target="_blank" class="btn btn-sm btn-outline-light mt-2">View Credential</a>
+            {% endif %}
+          </div>
         {% endfor %}
       </div>
     </div>
@@ -272,8 +592,37 @@ INDEX_HTML = '''
     {% for exp in data.experience %}
       <div class="col-md-6" data-aos="fade-up" data-aos-delay="50">
         <div class="card p-3 mb-3">
-          <h5>{{ exp.role }} <small class="text-muted">@ {{ exp.company }}</small></h5>
+          <h5>{{ exp.role }}@ {{ exp.company }}</small></h5>
+          {% if exp.position %}
+            <p class="mb-2"><strong>Position:</strong> <span class="accent">{{ exp.position }}</span></p>
+          {% endif %}
           <p>{{ exp.details }}</p>
+          {% if exp.tasks %}
+            <p class="mb-2"><strong>Key Tasks:</strong></p>
+            <div class="mb-2">
+              {% for task in exp.tasks %}
+                <div class="task-item">{{ task }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+          {% if exp.technologies %}
+            <p class="mb-2"><strong>Technologies used:</strong></p>
+            <div class="mb-2">
+              {% for tech in exp.technologies %}
+                <span class="skill-badge">{{ tech }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+          {% if exp.role == "Software Tester Intern" %}
+            <div class="mt-3">
+              <a class="btn btn-outline-light btn-sm" href="{{ data.github }}" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github me-2" viewBox="0 0 16 16">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+                View My Testimonials on GitHub
+              </a>
+            </div>
+          {% endif %}
         </div>
       </div>
     {% endfor %}
@@ -289,7 +638,7 @@ INDEX_HTML = '''
         <p>Email: <a href="mailto:{{ data.email }}">{{ data.email }}</a></p>
         <p>LinkedIn: <a href="{{ data.linkedin }}" target="_blank">Profile</a></p>
         <p>GitHub: <a href="{{ data.github }}" target="_blank">{{ data.github }}</a></p>
-        <p><a class="btn btn-outline-light" href="/download-cv">Download CV (sample)</a></p>
+        <p><a class="btn btn-outline-light" href="https://github.com/YovenBlast/CV/blob/main/CV%20M%20Chinnasamy_2025.pdf" target="_blank">Download CV</a></p>
       </div>
     </div>
     <div class="col-md-6" data-aos="fade-left">
@@ -308,7 +657,7 @@ INDEX_HTML = '''
             <label class="form-label">Message</label>
             <textarea class="form-control" name="message"></textarea>
           </div>
-          <button class="btn btn-primary">Send</button>
+          <button class="btn btn-outline-light">Send</button>
           <small class="d-block mt-2 text-muted">(This demo form currently just shows a thank-you page.)</small>
         </form>
       </div>
@@ -338,6 +687,43 @@ PROJECT_HTML = '''
         {% if project.repo %}<p><a class="btn btn-sm btn-outline-light" href="{{ project.repo }}" target="_blank">View code</a></p>{% endif %}
       </div>
     </div>
+
+    <!-- Project Video Section -->
+    {% if project.video_url %}
+    <div class="media-section">
+      <h5>Project Video</h5>
+      <div class="video-container">
+        <video controls>
+          <source src="{{ project.video_url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <p class="text-center">
+        <a href="{{ project.video_url }}" target="_blank" class="btn btn-sm btn-outline-light">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github me-2" viewBox="0 0 16 16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          View Video on GitHub
+        </a>
+      </p>
+    </div>
+    {% endif %}
+
+    <!-- Project Images Section -->
+    {% if project.images_url %}
+    <div class="media-section">
+      <h5>Project Images</h5>
+      <p>View additional project screenshots and images on GitHub.</p>
+      <p>
+        <a href="{{ project.images_url }}" target="_blank" class="btn btn-sm btn-outline-light">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github me-2" viewBox="0 0 16 16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          View Images on GitHub
+        </a>
+      </p>
+    </div>
+    {% endif %}
   </div>
 </section>
 {% endblock %}
@@ -388,20 +774,6 @@ def contact():
     message = request.form.get('message', '')
     # Demo behaviour: show thank you page. Replace with real email sending if required.
     return render_template_string(app.jinja_loader.get_source(app.jinja_env, 'thankyou.html')[0], data=DATA, name=name, email=email)
-
-@app.route('/download-cv')
-def download_cv():
-    # Create a tiny sample CV on the fly. You can replace this with a static file.
-    sample = f"""
-    {DATA['name']} - Resume\n\n{DATA['title']}\nLocation: {DATA['location']}\n\nSummary:\n{DATA['summary']}\n\nEducation:\n"""
-    for e in DATA['education']:
-        sample += f"- {e['degree']}, {e['school']} ({e['date']})\n"
-    sample += "\nExperience:\n"
-    for ex in DATA['experience']:
-        sample += f"- {ex['role']} @ {ex['company']} ({ex['date']})\n  {ex['details']}\n"
-    bio = io.BytesIO(sample.encode('utf-8'))
-    bio.seek(0)
-    return send_file(bio, as_attachment=True, download_name='Maheswaren_CV.txt', mimetype='text/plain')
 
 # ---------------------------
 # Static files note
